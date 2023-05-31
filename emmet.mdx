@@ -15,7 +15,7 @@ HTML 및 CSS를 작성하는 과정에서 요소 또는 속성들을 하나씩 �
 
 - 요소 안에 자식 요소를 추가하는 경우 `>`를 사용한다.
 
-Ex. nav>ul>li
+Ex. `nav>ul>li`
 
 ```html
 <nav>
@@ -29,7 +29,7 @@ Ex. nav>ul>li
 
 - 요소와 동일한 레벨(형제)의 요소를 추가하는 경우 `+`를 사용한다.
 
-Ex. div+p+bq
+Ex. `div+p+bq`
 
 ```html
 <div></div>
@@ -41,7 +41,7 @@ Ex. div+p+bq
 
 - 동일 레벨(형제) 요소보다 한 단계 윗 단계에 요소를 추가하고자 하는 경우 `^`를 사용한다.
 
-Ex. div+div>p>span+em^bq
+Ex. `div+div>p>span+em^bq`
 
 ```html
 <div></div>
@@ -54,7 +54,7 @@ Ex. div+div>p>span+em^bq
 </div>
 ```
 
-Ex. div+div>p>span+em^^bq
+Ex. `div+div>p>span+em^^bq`
 
 ```html
 <div></div>
@@ -71,7 +71,7 @@ Ex. div+div>p>span+em^^bq
 
 - 요소들을 묶음 단위로 표현하고자 하는 경우 `()`를 사용한다.
 
-Ex. div>(header>ul>li\*2>a)+footer>p
+Ex. `div>(header>ul>li\*2>a)+footer>p`
 
 ```html
 <div>
@@ -88,7 +88,7 @@ Ex. div>(header>ul>li\*2>a)+footer>p
 </div>
 ```
 
-Ex. (div>dl>(dt+dd)\*3)+footer>p
+Ex. `(div>dl>(dt+dd)\*3)+footer>p`
 
 ```html
 <div>
@@ -110,7 +110,7 @@ Ex. (div>dl>(dt+dd)\*3)+footer>p
 
 - 해당 요소 또는 묶음 단위를 기준으로 반복 생성을 하고자 하는 경우, `*`를 사용하며, 그 뒤에는 숫자가 온다.
 
-Ex. ul>li\*5
+Ex. `ul>li\*5`
 
 ```html
 <ul>
@@ -122,7 +122,7 @@ Ex. ul>li\*5
 </ul>
 ```
 
-Ex. ul>(li>a)\*4
+Ex. `ul>(li>a)\*4`
 
 ```html
 <ul>
@@ -147,7 +147,7 @@ Ex. ul>(li>a)\*4
 - 요소의 숫자는 1씩 순차적으로 증가한다.
 - 생성되는 요소의 총 갯수는 `*` 다음에 입력된 숫자만큼이다.
 
-Ex. ul>li.item$\*5
+Ex. `ul>li.item$\*5`
 
 ```html
 <ul>
@@ -159,7 +159,7 @@ Ex. ul>li.item$\*5
 </ul>
 ```
 
-Ex. h$[title=item$]{This is Header $}\*3
+Ex. `h$[title=item$]{This is Header $}\*3`
 
 ```html
 <h1 title="item1">This is Header 1</h1>
@@ -167,7 +167,7 @@ Ex. h$[title=item$]{This is Header $}\*3
 <h3 title="item3">This is Header 3</h3>
 ```
 
-Ex. ul>li.item$$$\*5
+Ex. `ul>li.item$$$\*5`
 
 ```html
 <ul>
@@ -179,7 +179,7 @@ Ex. ul>li.item$$$\*5
 </ul>
 ```
 
-Ex. ul>li.item$@-\*5
+Ex. `ul>li.item$@-\*5`
 
 ```html
 <ul>
@@ -191,7 +191,7 @@ Ex. ul>li.item$@-\*5
 </ul>
 ```
 
-Ex. ul>li.item$@3\*5
+Ex. `ul>li.item$@3\*5`
 
 ```html
 <ul>
@@ -208,13 +208,13 @@ Ex. ul>li.item$@3\*5
 - 요소의 id를 생성하고자 하는 경우, `#`
 - 요소의 class를 생성하고자 하는 경우, `.`를 사용한다.
 
-Ex. #header
+Ex. `#header`
 
 ```html
 <div id="header"></div>
 ```
 
-Ex. .header
+Ex. `.header`
 
 ```html
 <div class="header"></div>
@@ -223,13 +223,13 @@ Ex. .header
 **Note**
 : 태그 이름 없이 속성값부터 시작하면 div 요소로 인식한다.
 
-Ex. form#search.wide
+Ex. `form#search.wide`
 
 ```html
 <form id="search" class="wide"></form>
 ```
 
-Ex. p.class1.class2.class3
+Ex. `p.class1.class2.class3`
 
 ```html
 <p class="class1 class2 class3"></p>
@@ -239,13 +239,13 @@ Ex. p.class1.class2.class3
 
 - 요소의 속성을 정의하고자 하는 경우, `[]`를 사용한다.
 
-Ex. p[title="Hello World"]
+Ex. `p[title="Hello World"]`
 
 ```html
 <p title="Hello World"></p>
 ```
 
-Ex. td[rowspan=2 colspan=3 title]
+Ex. `td[rowspan=2 colspan=3 title]`
 
 ```html
 <td rowspan="2" colspan="3" title=""></td>
@@ -255,13 +255,13 @@ Ex. td[rowspan=2 colspan=3 title]
 
 - 요소의 여는 태그와 닫는 태그 사이에 텍스트를 입력하고자 하는 경우, `{}`를 사용한다.
 
-Ex. a{Click Me}
+Ex. `a{Click Me}`
 
 ```html
 <a href="">Click Me</a>
 ```
 
-Ex. p>{Click }+a{here}+{ to continue}
+Ex. `p>{Click }+a{here}+{ to continue}`
 
 ```html
 <p>Click <a href="">here</a> to continue</p>
@@ -273,7 +273,7 @@ Ex. p>{Click }+a{here}+{ to continue}
 - 즉, 별도로 요소를 명시(Explicit)하지 않으면, 문법적으로 꼭 정해진 위치인 경우 지정된 요소가 생성되고
 - 그렇지 않은 경우, 디자인적 요소(의미가 없는 요소)로 판단하여 div 또는 span 요소를 생성한다.
 
-Ex. .className
+Ex. `.className`
 
 ```html
 <div class="className"></div>
@@ -281,7 +281,7 @@ Ex. .className
 
 - 단독으로 사용되는 경우, 기본적으로 div 요소로 간주한다.
 
-Ex. em>.className
+Ex. `em>.className`
 
 ```html
 <em>
@@ -293,7 +293,7 @@ Ex. em>.className
 em 요소는 문장 내에서 특정 문맥을 강조(emphasize)할 때 사용된다.
 따라서 문장 내에서 사용될 수 있는 span 요소로 간주한다.
 
-Ex. ul>.className
+Ex. `ul>.className`
 
 ```html
 <ul>
@@ -304,7 +304,7 @@ Ex. ul>.className
 **Note**
 ul 또는 ol 요소 바로 아래 레벨에서는 무조건 li가 작성되어야 하기에 자동으로 결정된다.
 
-Ex. table>.row>.col
+Ex. `table>.row>.col`
 
 ```html
 <table>
