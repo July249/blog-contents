@@ -1,0 +1,324 @@
+---
+title: Emmet 작성법
+date: '2023-05-29'
+tags: ['HTML', 'CSS']
+---
+
+# Emmet 작성법
+
+HTML 및 CSS를 작성하는 과정에서 요소 또는 속성들을 하나씩 정성들여 작성하는 것도 좋지만, Emmet 약어(Emmet Abbreviation)를 사용하는 것보다는 효율성이 떨어지는 것이 사실이다.
+따라서 Emmet 약어의 문법을 익혀 기본적은 HTML, CSS 코드 작성에 효율성을 증대시켜보고자 한다.
+
+## Emmet Syntax
+
+### Child: `>`
+
+- 요소 안에 자식 요소를 추가하는 경우 `>`를 사용한다.
+
+Ex. nav>ul>li
+
+```html
+<nav>
+  <ul>
+    <li></li>
+  </ul>
+</nav>
+```
+
+### Sibiling: `+`
+
+- 요소와 동일한 레벨(형제)의 요소를 추가하는 경우 `+`를 사용한다.
+
+Ex. div+p+bq
+
+```html
+<div></div>
+<p></p>
+<blockquote></blockquote>
+```
+
+### Climb-up: `^`
+
+- 동일 레벨(형제) 요소보다 한 단계 윗 단계에 요소를 추가하고자 하는 경우 `^`를 사용한다.
+
+Ex. div+div>p>span+em^bq
+
+```html
+<div></div>
+<div>
+  <p>
+    <span></span>
+    <em></em>
+  </p>
+  <blockquote></blockquote>
+</div>
+```
+
+Ex. div+div>p>span+em^^bq
+
+```html
+<div></div>
+<div>
+  <p>
+    <span></span>
+    <em></em>
+  </p>
+</div>
+<blockquote></blockquote>
+```
+
+### Grouping: `()`
+
+- 요소들을 묶음 단위로 표현하고자 하는 경우 `()`를 사용한다.
+
+Ex. div>(header>ul>li\*2>a)+footer>p
+
+```html
+<div>
+  <header>
+    <ul>
+      <li>
+        <a href=""></a>
+      </li>
+      <li>
+        <a href=""></a>
+      </li>
+    </ul>
+  </header>
+</div>
+```
+
+Ex. (div>dl>(dt+dd)\*3)+footer>p
+
+```html
+<div>
+  <dl>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+    <dt></dt>
+    <dd></dd>
+  </dl>
+</div>
+<footer>
+  <p></p>
+</footer>
+```
+
+### Multiplication: `*`
+
+- 해당 요소 또는 묶음 단위를 기준으로 반복 생성을 하고자 하는 경우, `*`를 사용하며, 그 뒤에는 숫자가 온다.
+
+Ex. ul>li\*5
+
+```html
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+```
+
+Ex. ul>(li>a)\*4
+
+```html
+<ul>
+  <li>
+    <a href=""></a>
+  </li>
+  <li>
+    <a href=""></a>
+  </li>
+  <li>
+    <a href=""></a>
+  </li>
+  <li>
+    <a href=""></a>
+  </li>
+</ul>
+```
+
+### Item numbering: `$`
+
+- 반복적으로 요소를 만드는 경우에 `*`와 같이 사용되며, `$` 표시의 갯수만큼의 자릿수를 가지는 숫자가 붙으며 요소가 생성된다.
+- 요소의 숫자는 1씩 순차적으로 증가한다.
+- 생성되는 요소의 총 갯수는 `*` 다음에 입력된 숫자만큼이다.
+
+Ex. ul>li.item$\*5
+
+```html
+<ul>
+  <li class="item1"></li>
+  <li class="item2"></li>
+  <li class="item3"></li>
+  <li class="item4"></li>
+  <li class="item5"></li>
+</ul>
+```
+
+Ex. h$[title=item$]{This is Header $}\*3
+
+```html
+<h1 title="item1">This is Header 1</h1>
+<h2 title="item2">This is Header 2</h2>
+<h3 title="item3">This is Header 3</h3>
+```
+
+Ex. ul>li.item$$$\*5
+
+```html
+<ul>
+  <li class="item001"></li>
+  <li class="item002"></li>
+  <li class="item003"></li>
+  <li class="item004"></li>
+  <li class="item005"></li>
+</ul>
+```
+
+Ex. ul>li.item$@-\*5
+
+```html
+<ul>
+  <li class="item5"></li>
+  <li class="item4"></li>
+  <li class="item3"></li>
+  <li class="item2"></li>
+  <li class="item1"></li>
+</ul>
+```
+
+Ex. ul>li.item$@3\*5
+
+```html
+<ul>
+  <li class="item3"></li>
+  <li class="item4"></li>
+  <li class="item5"></li>
+  <li class="item6"></li>
+  <li class="item7"></li>
+</ul>
+```
+
+### id(`#`)와 class(`.`) attributes
+
+- 요소의 id를 생성하고자 하는 경우, `#`
+- 요소의 class를 생성하고자 하는 경우, `.`를 사용한다.
+
+Ex. #header
+
+```html
+<div id="header"></div>
+```
+
+Ex. .header
+
+```html
+<div class="header"></div>
+```
+
+**Note**
+: 태그 이름 없이 속성값부터 시작하면 div 요소로 인식한다.
+
+Ex. form#search.wide
+
+```html
+<form id="search" class="wide"></form>
+```
+
+Ex. p.class1.class2.class3
+
+```html
+<p class="class1 class2 class3"></p>
+```
+
+### Custom attributes: `[]`
+
+- 요소의 속성을 정의하고자 하는 경우, `[]`를 사용한다.
+
+Ex. p[title="Hello World"]
+
+```html
+<p title="Hello World"></p>
+```
+
+Ex. td[rowspan=2 colspan=3 title]
+
+```html
+<td rowspan="2" colspan="3" title=""></td>
+```
+
+### Text: `{}`
+
+- 요소의 여는 태그와 닫는 태그 사이에 텍스트를 입력하고자 하는 경우, `{}`를 사용한다.
+
+Ex. a{Click Me}
+
+```html
+<a href="">Click Me</a>
+```
+
+Ex. p>{Click }+a{here}+{ to continue}
+
+```html
+<p>Click <a href="">here</a> to continue</p>
+```
+
+### Implicit tag names
+
+- 암시적(Implicit)으로 요소의 id 또는 class 속성만을 사용하여 요소를 생성 또는 작성하는 방법이다.
+- 즉, 별도로 요소를 명시(Explicit)하지 않으면, 문법적으로 꼭 정해진 위치인 경우 지정된 요소가 생성되고
+- 그렇지 않은 경우, 디자인적 요소(의미가 없는 요소)로 판단하여 div 또는 span 요소를 생성한다.
+
+Ex. .className
+
+```html
+<div class="className"></div>
+```
+
+- 단독으로 사용되는 경우, 기본적으로 div 요소로 간주한다.
+
+Ex. em>.className
+
+```html
+<em>
+  <span class="className"></span>
+</em>
+```
+
+** Note**
+em 요소는 문장 내에서 특정 문맥을 강조(emphasize)할 때 사용된다.
+따라서 문장 내에서 사용될 수 있는 span 요소로 간주한다.
+
+Ex. ul>.className
+
+```html
+<ul>
+  <li class="className"></li>
+</ul>
+```
+
+**Note**
+ul 또는 ol 요소 바로 아래 레벨에서는 무조건 li가 작성되어야 하기에 자동으로 결정된다.
+
+Ex. table>.row>.col
+
+```html
+<table>
+  <tr class="row">
+    <td class="col"></td>
+  </tr>
+</table>
+```
+
+**Note**
+tabular data의 기본 구조에 따라 자동으로 요소가 결정된다.
+
+## Emmet HTML, CSS cheat sheet
+
+- 앞서 살펴본 emmet syntax 이외에도 HTML, CSS 작성에 있어 유용한 emmet 작성법들이 있으니 참고하여 주시기 바랍니다.
+
+<a href='https://docs.emmet.io/cheat-sheet/'></a>
